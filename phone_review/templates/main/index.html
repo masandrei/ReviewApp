@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Generic Review Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .phone-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .phone-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .phone-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .phone-item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .phone-item p {
+            color: #777;
+        }
+        .phone-item .price {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+        .phone-item a {
+            display: block;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .phone-item a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Generic Review Website</h1>
+    </header>
+    <div class="filter">
+
+    </div>
+    <div class="phone-list">
+        {% for phone in phones %}
+        <div class="phone-item">
+            <h3>{{ phone.phone_model }}</h3>
+            <p>Manufacturer: {{ phone.manufacturer }}</p>
+            <p>Year: {{ phone.year_of_presentation }}</p>
+            <p class="price">{{ phone.average_rating|default:"-"  }}</p>
+            <a href="">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
